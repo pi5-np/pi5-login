@@ -31,15 +31,11 @@ class JwtTokenProvider {
                 .compact()
     }
 
-    fun getUserIdFromJWT(token: String): ResponseLoginToken? {
-        val claims = Jwts.parser()
+    fun getUserIdFromJWT(token: String): Claims? {
+        return Jwts.parser()
             .setSigningKey(jwtSecret)
             .parseClaimsJws(token)
             .body
-
-        return ResponseLoginToken(
-            username = claims["username"].toString()
-        )
     }
 
     fun validateToken(authToken: String): Boolean {
