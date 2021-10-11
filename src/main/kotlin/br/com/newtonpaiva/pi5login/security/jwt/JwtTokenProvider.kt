@@ -14,7 +14,7 @@ class JwtTokenProvider {
     val logger = LoggerFactory.getLogger(JwtTokenProvider::class.java)
 
     private var jwtSecret = "MySecret"
-    private var jwtExpirationInMs = 860_000_000
+    private var jwtExpirationInMs = 300000
 
     fun generateToken(authentication: Authentication): String? {
 
