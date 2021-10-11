@@ -22,6 +22,7 @@ class CommandLineRunner: CommandLineRunner {
         val user6 = UserDTO("usuario_six", "12345")
         val user7 = UserDTO("usuario_seven", "12345")
         val user8 = UserDTO("usuario_eight", "12345")
+        val user9 = UserDTO("tarley", "123")
 
         try{
             userService.createUser(user1)
@@ -60,6 +61,11 @@ class CommandLineRunner: CommandLineRunner {
         }
         try{
             userService.createUser(user8)
+        } catch (e: GeneralException){
+            println(e.message)
+        }
+        try{
+            userService.createUser(user9)
         } catch (e: GeneralException){
             println(e.message)
         }
